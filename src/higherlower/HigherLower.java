@@ -6,7 +6,7 @@ import javax.swing.*;
  * @since 09-Feb-2023
  */
 public class HigherLower {   
-    private static int guessCounter = 0;
+    private static int guessCounter = 1;
     private static int min = 0;
     private static int max = 101;
     private static int prevGuess = max / 2;
@@ -31,7 +31,7 @@ public class HigherLower {
         JOptionPane.showMessageDialog(null,
                 "Welcome to Higher/Lower!\n"
              + " pick a number between 0-100 "
-             + "(inclusive)\nand i will try to guess it in at most 6 guesses!"
+             + "(inclusive)\nand i will try to guess it in at most 7 guesses!"
                         + "\n(as long as you're being honest)",
                 "HigherLower", 
                 JOptionPane.INFORMATION_MESSAGE);
@@ -103,11 +103,10 @@ public class HigherLower {
         
         // if the player wants to re-play then  reset all counters and run main again
         if(result == JOptionPane.YES_OPTION) {
-            guessCounter = 0;
+            guessCounter = 1;
             min = 0;
             max = 101;
-            prevGuess = 0;
-            guessCounter = 0;
+            prevGuess = max / 2;
             HigherLower = "";
             main(gofuckyourself);
         } 
@@ -126,7 +125,7 @@ public class HigherLower {
                 return guess;
             case "lower":
                 max = previousGuess;
-                guess = max / 2 ;
+                guess = (max + min) / 2 ;
                 prevGuess = guess;
                 return guess;
             default:

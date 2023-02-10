@@ -8,8 +8,8 @@ import javax.swing.*;
 public class HigherLower {   
     private static int guessCounter = 0;
     private static int min = 0;
-    private static int max = 100;
-    private static int prevGuess;
+    private static int max = 101;
+    private static int prevGuess = max / 2;
     private static String HigherLower;
     private static String[] gofuckyourself; //"inappropriate variable name, mark deducted" https://tenor.com/view/nerd-nerdy-nerds-nerd-emoji-gif-25380417
     private final static Object[] options = {"higher", "lower", "correct!"};
@@ -31,7 +31,7 @@ public class HigherLower {
         JOptionPane.showMessageDialog(null,
                 "Welcome to Higher/Lower!\n"
              + " pick a number between 0-100 "
-             + "(inclusive)\nand i will try to guess it in as little as 7 guesses!"
+             + "(inclusive)\nand i will try to guess it in at most 6 guesses!"
                         + "\n(as long as you're being honest)",
                 "HigherLower", 
                 JOptionPane.INFORMATION_MESSAGE);
@@ -64,7 +64,6 @@ public class HigherLower {
                 break;
         }
         //since we didn't technically call guess before, we manually guess here
-         Guess(50, HigherLower);
          StartGuessRoutine();       
     }    
     //start guessing and repeatedly getting inputs
@@ -106,7 +105,7 @@ public class HigherLower {
         if(result == JOptionPane.YES_OPTION) {
             guessCounter = 0;
             min = 0;
-            max = 100;
+            max = 101;
             prevGuess = 0;
             guessCounter = 0;
             HigherLower = "";
@@ -127,7 +126,7 @@ public class HigherLower {
                 return guess;
             case "lower":
                 max = previousGuess;
-                guess = (int)Math.ceil(((max - min) / 2) + min);
+                guess = max / 2 ;
                 prevGuess = guess;
                 return guess;
             default:

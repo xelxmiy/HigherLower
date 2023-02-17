@@ -1,22 +1,26 @@
 package higherlower;
 import javax.swing.*;
 /**
+ * HigherLower - a game which guesses a number the user picks in their head!
+ * this one was weirdly hard and took 3 tries
+ * 
  * @author Adam Belski
- * @version 3.2.0
+ * @version 3.3.0
  * @since 09-Feb-2023
  */
 public class HigherLower {   
+    ///init vars 
     private static int guessCounter = 1;
     private static int min = 0;
     private static int max = 101;
     private static int prevGuess = max / 2;
     private static String HigherLower;
-    private static String[] gofuckyourself; //"inappropriate variable name, mark deducted" https://tenor.com/view/nerd-nerdy-nerds-nerd-emoji-gif-25380417
+    private static String[] gofuckyourself;
     private final static Object[] options = {"higher", "lower", "correct!"};
     
     public static void main(String[] args) {
         //for debbuging, please ignore
-        Thread newThread = new Thread(() -> {
+/*        Thread newThread = new Thread(() -> {
              while (true) {
              System.out.println("min: " + min);
              System.out.println("max: " + max);
@@ -25,9 +29,9 @@ public class HigherLower {
              System.out.println("guessnumber: "+ guessCounter);
             }
          });
-         newThread.start();
-         
-        //intro message
+         newThread.start();S
+*/         
+        //intro messageS
         JOptionPane.showMessageDialog(null,
                 "Welcome to Higher/Lower!\n"
              + " pick a number between 0-100 "
@@ -45,7 +49,7 @@ public class HigherLower {
              JOptionPane.YES_NO_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE,
                   null, options, null);
-         //i think the switch here looks ugly asf but i'd rather the program not yell at me 
+        //i think the switch here looks bad but the program is yelling at me 
         switch (result) {
             case JOptionPane.YES_OPTION:
                 HigherLower = "higher";
@@ -62,8 +66,8 @@ public class HigherLower {
                 prevGuess = -1;
                 StartGuessRoutine();
                 break;
-        }
-        //since we didn't technically call guess before, we manually guess here
+        }        
+         //start guessing
          StartGuessRoutine();       
     }    
     //start guessing and repeatedly getting inputs

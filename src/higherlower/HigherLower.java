@@ -37,19 +37,6 @@ public class HigherLower {
         });
         newThread.start();
 
-        //intro message
-/*        Thread newThread = new Thread(() -> {
-             while (true) {
-             System.out.println("min: " + min);
-             System.out.println("max: " + max);
-             System.out.println("prevguess: " + prevGuess);
-             System.out.println("HigherLower: " + HigherLower);
-             System.out.println("guessnumber: "+ guessCounter);
-            }
-         });
-         newThread.start();S
-*/         
-        //intro messageS
         JOptionPane.showMessageDialog(null,
                 "Welcome to Higher/Lower!\n"
                 + " pick a number between 0-100 "
